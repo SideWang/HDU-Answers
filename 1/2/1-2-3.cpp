@@ -1,19 +1,15 @@
 #include <iostream> 
 using namespace std;
 
-#define LOCAL 1
-#if LOCAL
-#include <fstream>
-#include <ctime>
-#endif
+#define LOCAL 0
 
 int t[100];
 
 int main(){
 #if LOCAL
-	fstream cin("datain.txt",fstream::in);
-	fstream cout("dataout.txt",fstream::app);
-	cout << endl << "time:"<< time(0)%1000 << endl;
+	freopen ("datain.txt","r",stdin);
+    freopen ("dataout1.txt","w",stdout);
+	cout << "#########################"<< endl;
 #endif
 	int n,m = 0;
 	while((cin >> n),n){
@@ -29,10 +25,9 @@ int main(){
 			if(t[i] > avg)
 				sum += (t[i] - avg);
 		}
-		if(m != 1)
-			cout << endl;
 		cout << "Set #" << m << endl;
 		cout << "The minimum number of moves is " << sum << ". " << endl;
+		cout << endl;
 	}
 	
 	return 0;
