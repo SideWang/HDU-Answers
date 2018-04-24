@@ -8,6 +8,8 @@ int t[26];
 
 int main(){   
 #if LOCAL
+//	fstream cin("datain.txt",fstream::in);
+//	fstream cout("dataout.txt",fstream::app);
 	freopen ("datain.txt","r",stdin);
     freopen ("dataout.txt","w",stdout);
 	cout << "#########################"<< endl;
