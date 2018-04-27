@@ -39,6 +39,10 @@ Data mod(Data x,Data y){
 }
 
 Data gcdf(Data x,Data y){
+	if(x.b < y.b){
+		x.a *= y.b;
+		x.b *= y.b;
+	}
 	Data tmp = mod(x,y);
 	if(tmp.a == 0)
 		return y;
@@ -62,20 +66,22 @@ int main(){
 		cin >> y.a;
 		cin >> tmp;
 		cin >> y.b;
-		
+		cout << "#" << x.a << "/" << x.b << " ";
+		cout << "#" << y.a << "/" << y.b << endl;		
 		Data t;
 		if(double(x.a)/x.b > double(y.a)/y.b)
-			t = gcdf(x,y);
+//			t = gcdf(x,y);
+			t = muti(x,y);
 		else{
-			t = gcdf(y,x);
+//			t = gcdf(y,x);
+			t = muti(y,x);
 		}
 		if(t.b == 1)
 			cout << t.a << endl;
 		else{
 			cout << t.a << "/" << t.b << endl;
 		}
-//		cout << "#" << x.a << "/" << x.b << " ";
-//		cout << "#" << y.a << "/" << y.b << endl;
+
 	}
 	
 	return 0;
